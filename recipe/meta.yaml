@@ -4,21 +4,25 @@ package:
 
 build:
   number: 0
-  track_features:
-    - osx_opencl_variant_pocl  # [OSX_OPENCL_VARIANT=='pocl']
-  string: {{ OSX_OPENCL_VARIANT }}
-  run_exports:
-    - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}
 
 test:
   commands:
     - echo "Hello World!"
 
 outputs:
+  - name: osx-opencl-variant
+    build:
+      track_features:
+        - osx_opencl_variant_pocl  # [OSX_OPENCL_VARIANT=='pocl']
+      string: {{ OSX_OPENCL_VARIANT }}
+      run_exports:
+        - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}
+
   # For backwards compatibility only. Remove when it's not used anymore
   - name: osx-pocl-opencl                                  # [OSX_OPENCL_VARIANT=='pocl']
     requirements:                                          # [OSX_OPENCL_VARIANT=='pocl']
-       - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}   # [OSX_OPENCL_VARIANT=='pocl']
+      run:  # [OSX_OPENCL_VARIANT=='pocl']
+       - osx-opencl-variant  2.* {{ OSX_OPENCL_VARIANT }}     # [OSX_OPENCL_VARIANT=='pocl']
 
 about:
   home: http://github.com/conda-forge/osx-pocl-opencl-feedstock
