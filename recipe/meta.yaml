@@ -1,12 +1,21 @@
 package:
-  name: osx-pocl-opencl
-  version: 1
+  name: osx-opencl-variant
+  version: 2.0
 
 build:
   number: 0
   track_features:
-    - osx_pocl_opencl
+    - osx_pocl_opencl  # [OSX_OPENCL_VARIANT=='pocl']
+  string: {{ OSX_OPENCL_VARIANT }}
   skip: True  # [not osx]
+  run_exports:
+    - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}
+
+outputs:
+  # For backwards compatibility only. Remove when it's not used anymore
+  - name: osx-pocl-opencl                                  # [OSX_OPENCL_VARIANT=='pocl']
+    requirements:                                          # [OSX_OPENCL_VARIANT=='pocl']
+       - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}   # [OSX_OPENCL_VARIANT=='pocl']
 
 test: {}
 
