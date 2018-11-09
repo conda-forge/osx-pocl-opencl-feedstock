@@ -5,7 +5,7 @@ package:
 build:
   number: 0
   track_features:
-    - osx_pocl_opencl  # [OSX_OPENCL_VARIANT=='pocl']
+    - osx_opencl_variant_pocl  # [OSX_OPENCL_VARIANT=='pocl']
   string: {{ OSX_OPENCL_VARIANT }}
   skip: True  # [not osx]
   run_exports:
