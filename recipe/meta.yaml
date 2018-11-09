@@ -22,7 +22,7 @@ outputs:
   - name: osx-pocl-opencl                                  # [OSX_OPENCL_VARIANT=='pocl']
     requirements:                                          # [OSX_OPENCL_VARIANT=='pocl']
       run:  # [OSX_OPENCL_VARIANT=='pocl']
-       - osx-opencl-variant  2.* {{ OSX_OPENCL_VARIANT }}     # [OSX_OPENCL_VARIANT=='pocl']
+       - osx-opencl-variant  * {{ OSX_OPENCL_VARIANT }}     # [OSX_OPENCL_VARIANT=='pocl']
 
 about:
   home: http://github.com/conda-forge/osx-pocl-opencl-feedstock
