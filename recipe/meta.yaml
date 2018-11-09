@@ -7,7 +7,6 @@ build:
   track_features:
     - osx_opencl_variant_pocl  # [OSX_OPENCL_VARIANT=='pocl']
   string: {{ OSX_OPENCL_VARIANT }}
-  skip: True  # [not osx]
   run_exports:
     - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}
 
@@ -20,9 +19,6 @@ outputs:
   - name: osx-pocl-opencl                                  # [OSX_OPENCL_VARIANT=='pocl']
     requirements:                                          # [OSX_OPENCL_VARIANT=='pocl']
        - osx-opencl-variant 2.* {{ OSX_OPENCL_VARIANT }}   # [OSX_OPENCL_VARIANT=='pocl']
-    test:
-      commands:
-        - echo "Hello World!"
 
 about:
   home: http://github.com/conda-forge/osx-pocl-opencl-feedstock
