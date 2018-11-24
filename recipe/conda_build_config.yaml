@@ -1,0 +1,3 @@
+OSX_OPENCL_VARIANT:
+- pocl
+- native
